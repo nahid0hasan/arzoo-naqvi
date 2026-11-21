@@ -1,0 +1,6 @@
+{
+  "name": "Arzoo Naqvi | Chicago Luxury Real Estate",
+  "description": "Personal real estate advisory serving Chicago, Illinois. Thoughtful guidance for home buyers, strategic representation for sellers, and local neighborhood perspective.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
