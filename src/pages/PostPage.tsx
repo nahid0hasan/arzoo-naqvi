@@ -55,7 +55,8 @@ export function PostPage({ slug }: { slug: string }) {
             </nav>
             <h1 className="mt-5 text-[clamp(2.25rem,5.5vw,4.5rem)] font-medium leading-[1.02] tracking-[-0.04em]">{post.title}</h1>
             <div className="mt-8 flex items-center gap-4">
-              <img src={IMAGES.portrait} alt="" className="h-11 w-11 rounded-full object-cover object-top ring-2 ring-white/20" />
+              {/* <img src={IMAGES.portrait} alt="" className="h-11 w-11 rounded-full object-cover object-top ring-2 ring-white/20" /> */}
+              <img src={IMAGES.ArzooNaqviHome} alt="" className="h-11 w-11 rounded-full object-cover object-center ring-2 ring-white/20" />
               <div className="text-sm">
                 <p className="font-medium">Arzoo Naqvi</p>
                 <p className="text-white/60">

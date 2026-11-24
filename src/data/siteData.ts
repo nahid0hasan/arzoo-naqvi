@@ -2,46 +2,50 @@ const img = (name: string) => `/images/${name}.jpg`;
 
 export const IMAGES = {
   // Chicago
-  chicagoRiver: img('chicago-river'),
-  chicagoAerial: img('chicago-aerial'),
-  chicagoNight: img('chicago-night'),
-  chicagoTheatre: img('chicago-theatre'),
-  chicagoLasalle: img('chicago-lasalle'),
-  lincolnParkWalk: img('lincoln-park-walk'),
-  brownstoneStreet: img('brownstone-street'),
-  greystoneDusk: img('greystone-dusk'),
+  chicagoRiver: img("chicago-river"),
+  chicagoAerial: img("chicago-aerial"),
+  chicagoNight: img("chicago-night"),
+  chicagoTheatre: img("chicago-theatre"),
+  chicagoLasalle: img("chicago-lasalle"),
+  lincolnParkWalk: img("lincoln-park-walk"),
+  brownstoneStreet: img("brownstone-street"),
+  greystoneDusk: img("greystone-dusk"),
 
   // Interiors
-  penthouseSkyline: img('penthouse-skyline'),
-  livingArched: img('living-arched'),
-  goldCoastSalon: img('gold-coast-salon'),
-  lincolnParkKitchen: img('lincoln-park-kitchen'),
-  westLoopLoft: img('west-loop-loft'),
-  livingOpen: img('living-open'),
-  livingWarm: img('living-warm'),
-  livingLight: img('living-light'),
-  livingBright: img('living-bright'),
-  livingWindows: img('living-windows'),
-  livingGray: img('living-gray'),
-  bedroom: img('bedroom'),
-  bedroom2: img('bedroom-2'),
-  dining: img('dining'),
-  kitchen: img('kitchen'),
-  brickLoft: img('brick-loft'),
+  penthouseSkyline: img("penthouse-skyline"),
+  livingArched: img("living-arched"),
+  goldCoastSalon: img("gold-coast-salon"),
+  ArzooNaqviSell: img("arzoo-naqvi-sell-page"),
+  lincolnParkKitchen: img("lincoln-park-kitchen"),
+  westLoopLoft: img("west-loop-loft"),
+  livingOpen: img("living-open"),
+  livingWarm: img("living-warm"),
+  livingLight: img("living-light"),
+  ArzooNaqviBuy: img("arzoo-naqvi-buy-page"),
+  livingBright: img("living-bright"),
+  livingWindows: img("living-windows"),
+  livingGray: img("living-gray"),
+  bedroom: img("bedroom"),
+  bedroom2: img("bedroom-2"),
+  dining: img("dining"),
+  kitchen: img("kitchen"),
+  brickLoft: img("brick-loft"),
 
   // Exteriors
-  modernDusk: img('modern-dusk'),
-  modernCedar: img('modern-cedar'),
-  modernWood: img('modern-wood'),
-  facadeNight: img('facade-night'),
-  farmhouse: img('farmhouse'),
-  brickHouse: img('brick-house'),
-  brickHouse2: img('brick-house-2'),
-  porch: img('porch'),
+  modernDusk: img("modern-dusk"),
+  modernCedar: img("modern-cedar"),
+  modernWood: img("modern-wood"),
+  facadeNight: img("facade-night"),
+  farmhouse: img("farmhouse"),
+  brickHouse: img("brick-house"),
+  brickHouse2: img("brick-house-2"),
+  porch: img("porch"),
 
   // People
-  coupleKitchen: img('couple-kitchen'),
-  portrait: img('portrait'), // TODO: replace with Arzoo's real headshot
+  coupleKitchen: img("couple-kitchen"),
+  portrait: img("portrait"), // TODO: replace with Arzoo's real headshot
+  ArzooNaqviAboutMe: img("arzoo-naqvi-about-me"), // TODO: replace with Arzoo's real headshot
+  ArzooNaqviHome: img("arzoo-naqvi-home-hero"), // TODO: replace with Arzoo's real headshot
 } as const;
 
 /* -------------------------------------------------------------------------- */

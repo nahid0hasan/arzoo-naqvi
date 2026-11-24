@@ -40,7 +40,8 @@ export function ContactDock() {
             className="absolute bottom-[72px] right-0 w-[min(340px,calc(100vw-40px))] overflow-hidden rounded-2xl bg-white shadow-[0_24px_60px_-12px_rgb(0_0_0/0.3)] ring-1 ring-black/5"
           >
             <div className="flex items-center gap-3 bg-ink p-5 text-white">
-              <img src={IMAGES.portrait} alt="" className="h-12 w-12 rounded-full object-cover object-top" />
+              {/* <img src={IMAGES.portrait} alt="" className="h-12 w-12 rounded-full object-cover object-top" /> */}
+              <img src={IMAGES.ArzooNaqviHome} alt="" className="h-12 w-12 rounded-full object-cover object-center" />
               <div>
                 <p className="font-medium">Arzoo Naqvi</p>
                 <p className="text-sm text-white/60">Call, text or email anytime</p>

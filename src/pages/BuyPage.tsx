@@ -206,7 +206,8 @@ export function BuyPage() {
       <section id="process" className="scroll-mt-20 py-20 sm:py-28">
         <div className="wrap">
           <SectionHead eyebrow="How buying works" title="Five steps to your keys." className="mb-14" />
-          <Process steps={STEPS} image={IMAGES.livingLight} imageAlt="Sunlit living room" />
+          {/* <Process steps={STEPS} image={IMAGES.livingLight} imageAlt="Sunlit living room" /> */}
+          <Process steps={STEPS} image={IMAGES.ArzooNaqviBuy} imageAlt="Sunlit living room" />
         </div>
       </section>
 
