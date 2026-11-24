@@ -2,37 +2,7 @@ import React from 'react';
 import { Logo } from './Logo';
 import { Link, useRouter } from '../utils/router';
 import { SITE } from '../config/site';
-
-const COLUMNS = [
-  {
-    title: 'Buying',
-    links: [
-      { label: 'Search homes', to: '/buy#search' },
-      { label: 'Mortgage calculator', to: '/buy#mortgage' },
-      { label: 'How buying works', to: '/buy#process' },
-      { label: 'Buyer questions', to: '/buy#faq' },
-    ],
-  },
-  {
-    title: 'Selling',
-    links: [
-      { label: 'What’s my home worth?', to: '/sell#valuation' },
-      { label: 'Net proceeds calculator', to: '/sell#net-proceeds' },
-      { label: 'Seller checklist', to: '/sell#checklist' },
-      { label: 'How selling works', to: '/sell#process' },
-    ],
-  },
-  {
-    title: 'Chicago',
-    links: [
-      { label: 'Lincoln Park', to: '/chicago/lincoln-park' },
-      { label: 'West Loop', to: '/chicago/west-loop' },
-      { label: 'Gold Coast', to: '/chicago/gold-coast' },
-      { label: 'All neighborhoods', to: '/chicago' },
-      { label: 'Blog', to: '/blog' },
-    ],
-  },
-];
+import { COLUMNS } from '../data/navigation';
 
 export function Footer() {
   const { pathname } = useRouter();

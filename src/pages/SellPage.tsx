@@ -130,6 +130,7 @@ export function SellPage() {
         title="Sell your home for what it’s worth."
         text="Accurate pricing, beautiful marketing and steady negotiation, with a clear plan from day one."
         image={IMAGES.brownstoneStreet}
+        titleClassName="text-[clamp(3.3rem,8vw,7.25rem)]"
       >
         <ButtonLink to="#valuation" variant="light">What’s my home worth?</ButtonLink>
         <ButtonLink to="#net-proceeds" variant="outline-light">Net proceeds calculator</ButtonLink>

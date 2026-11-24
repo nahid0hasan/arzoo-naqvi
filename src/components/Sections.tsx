@@ -14,6 +14,7 @@ export function PageHero({
   image,
   children,
   short = false,
+  titleClassName,
 }: {
   eyebrow: string;
   title: React.ReactNode;
@@ -21,6 +22,7 @@ export function PageHero({
   image: string;
   children?: React.ReactNode;
   short?: boolean;
+  titleClassName?: string;
 }) {
   return (
     <section className={`relative flex items-end overflow-hidden bg-night text-white ${short ? 'min-h-[64svh]' : 'min-h-[82svh]'}`}>
@@ -41,7 +43,7 @@ export function PageHero({
           className="max-w-3xl"
         >
           <Eyebrow light>{eyebrow}</Eyebrow>
-          <h1 className="display">{title}</h1>
+          <h1 className={`display ${titleClassName ?? ''}`}>{title}</h1>
           {text && <p className="lead mt-6 max-w-xl text-white/80">{text}</p>}
           {children && <div className="mt-9 flex flex-wrap gap-3">{children}</div>}
         </motion.div>
