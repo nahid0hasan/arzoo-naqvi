@@ -11,12 +11,24 @@ import { ListingCard } from '../components/Listing';
 import { ClosingCta } from '../components/Sections';
 import { opts, Select } from '../components/Select';
 
+// const SLIDES = [
+//   { src: IMAGES.penthouseSkyline, caption: 'River North' },
+//   { src: IMAGES.brownstoneStreet, caption: 'Lincoln Park' },
+//   { src: IMAGES.chicagoRiver, caption: 'Chicago River' },
+//   { src: IMAGES.goldCoastSalon, caption: 'Gold Coast' },
+// ];
+// const SLIDE_MS = 6500;
+
+
+
 const SLIDES = [
-  { src: IMAGES.penthouseSkyline, caption: 'River North' },
-  { src: IMAGES.brownstoneStreet, caption: 'Lincoln Park' },
-  { src: IMAGES.chicagoRiver, caption: 'Chicago River' },
-  { src: IMAGES.goldCoastSalon, caption: 'Gold Coast' },
+  { src: IMAGES.arzooChicagoPenthouse, caption: 'Chicago Penthouse' },
+  { src: IMAGES.arzooChicagoResidence, caption: 'Lincoln Park' },
+  { src: IMAGES.arzooGardenLifestyle, caption: 'Garden Lifestyle' },
+  { src: IMAGES.arzooLuxuryInterior, caption: 'Luxury Interior' },
+  { src: IMAGES.arzooModernExterior, caption: 'Chicago River' },
 ];
+
 const SLIDE_MS = 6500;
 
 /* --------------------------------- Hero ----------------------------------- */
