@@ -157,19 +157,31 @@ export function Process({
 }
 
 /** Simple accessible accordion. */
-export function Faq({ items }: { items: { q: string; a: string }[] }) {
+export function Faq({ items }: { items: { q: string; a: React.ReactNode }[] }) {
+  const [expanded, setExpanded] = React.useState<Record<string, boolean>>({});
+
   return (
     <div className="divide-y divide-stone border-y border-stone">
       {items.map((item) => (
-        <details key={item.q} className="group py-2">
-          <summary className="flex cursor-pointer list-none items-center justify-between gap-6 py-4 text-lg font-medium tracking-[-0.01em] [&::-webkit-details-marker]:hidden">
+        <details
+          key={item.q}
+          className="group py-2"
+          onToggle={(event) => {
+            const isOpen = event.currentTarget.open;
+            setExpanded((current) => ({ ...current, [item.q]: isOpen }));
+          }}
+        >
+          <summary
+            aria-expanded={expanded[item.q] ?? false}
+            className="flex cursor-pointer list-none items-center justify-between gap-6 py-4 text-lg font-medium tracking-[-0.01em] [&::-webkit-details-marker]:hidden"
+          >
             {item.q}
             <span className="relative h-4 w-4 shrink-0" aria-hidden="true">
               <span className="absolute left-0 top-1/2 h-px w-4 bg-ink" />
-              <span className="absolute left-1/2 top-0 h-4 w-px bg-ink transition-transform duration-300 group-open:rotate-90 group-open:opacity-0" />
+              <span className="absolute left-1/2 top-0 h-4 w-px bg-ink transition-transform duration-300 motion-reduce:transition-none group-open:rotate-90 group-open:opacity-0" />
             </span>
           </summary>
-          <p className="max-w-2xl pb-5 leading-relaxed text-muted">{item.a}</p>
+          <div className="max-w-2xl pb-5 leading-relaxed text-muted">{item.a}</div>
         </details>
       ))}
     </div>

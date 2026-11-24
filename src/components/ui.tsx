@@ -141,6 +141,7 @@ export function Eyebrow({ children, light = false }: { children: React.ReactNode
 export function SectionHead({
   eyebrow,
   title,
+  titleClassName = '',
   text,
   light = false,
   action,
@@ -148,6 +149,7 @@ export function SectionHead({
 }: {
   eyebrow?: string;
   title: React.ReactNode;
+  titleClassName?: string;
   text?: React.ReactNode;
   light?: boolean;
   action?: React.ReactNode;
@@ -157,7 +159,7 @@ export function SectionHead({
     <Reveal className={`flex flex-col gap-6 md:flex-row md:items-end md:justify-between ${className}`}>
       <div className="max-w-2xl">
         {eyebrow && <Eyebrow light={light}>{eyebrow}</Eyebrow>}
-        <h2 className={`h-section ${light ? 'text-white' : 'text-ink'}`}>{title}</h2>
+        <h2 className={`h-section ${light ? 'text-white' : 'text-ink'} ${titleClassName}`}>{title}</h2>
         {text && <p className={`lead mt-5 max-w-xl ${light ? 'text-white/70' : 'text-muted'}`}>{text}</p>}
       </div>
       {action && <div className="shrink-0">{action}</div>}
