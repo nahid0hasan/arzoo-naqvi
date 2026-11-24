@@ -16,6 +16,36 @@
   --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
+:root {
+  --calc-section: #f2eee7;
+  --calc-card: #fbfaf7;
+  --calc-summary: #121212;
+  --calc-summary-soft: #2a2927;
+  --calc-heading: #121212;
+  --calc-body: #121212;
+  --calc-muted: #6e685f;
+  --calc-border: #e3ddd3;
+  --calc-divider: rgb(255 255 255 / 0.10);
+  --calc-input: #ffffff;
+  --calc-input-border: #e3ddd3;
+  --calc-focus: #93714a;
+  --calc-focus-ring: rgb(147 113 74 / 0.16);
+  --calc-slider-active: #93714a;
+  --calc-slider-inactive: #e3ddd3;
+  --calc-slider-thumb: #fbfaf7;
+  --calc-slider-thumb-border: #93714a;
+  --calc-button: #121212;
+  --calc-button-text: #fbfaf7;
+  --calc-button-hover: #2a2927;
+  --calc-selected: #121212;
+  --calc-selected-text: #fbfaf7;
+  --calc-chart-primary: #c9a877;
+  --calc-chart-secondary: #93714a;
+  --calc-chart-tertiary: #e3ddd3;
+  --calc-helper: #6e685f;
+  --calc-error: #991b1b;
+}
+
 @utility wrap {
   width: 100%;
   max-width: 1320px;
@@ -140,10 +170,10 @@ input[type="range"].range {
   border-radius: 999px;
   background: linear-gradient(
     to right,
-    var(--color-ink) 0%,
-    var(--color-ink) var(--fill, 50%),
-    var(--color-stone) var(--fill, 50%),
-    var(--color-stone) 100%
+    var(--calc-slider-active) 0%,
+    var(--calc-slider-active) var(--fill, 50%),
+    var(--calc-slider-inactive) var(--fill, 50%),
+    var(--calc-slider-inactive) 100%
   );
   cursor: pointer;
 }
@@ -152,16 +182,16 @@ input[type="range"].range::-webkit-slider-thumb {
   width: 20px;
   height: 20px;
   border-radius: 999px;
-  background: var(--color-paper);
-  border: 2px solid var(--color-ink);
+  background: var(--calc-slider-thumb);
+  border: 2px solid var(--calc-slider-thumb-border);
   box-shadow: 0 2px 6px rgb(0 0 0 / 0.15);
 }
 input[type="range"].range::-moz-range-thumb {
   width: 18px;
   height: 18px;
   border-radius: 999px;
-  background: var(--color-paper);
-  border: 2px solid var(--color-ink);
+  background: var(--calc-slider-thumb);
+  border: 2px solid var(--calc-slider-thumb-border);
 }
 
 @media (prefers-reduced-motion: reduce) {

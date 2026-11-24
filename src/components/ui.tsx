@@ -172,6 +172,9 @@ export function SectionHead({
 export const inputClass =
   'h-12 w-full rounded-xl border border-stone bg-white px-4 text-[15px] text-ink placeholder:text-muted/60 transition-colors focus:border-ink focus:outline-none';
 
+export const calculatorInputClass =
+  'h-12 w-full rounded-xl border border-[var(--calc-input-border)] bg-[var(--calc-input)] px-4 text-[15px] text-[var(--calc-body)] placeholder:text-[var(--calc-muted)]/60 transition-colors focus:border-[var(--calc-focus)] focus:outline-none focus:ring-3 focus:ring-[var(--calc-focus-ring)]';
+
 export function Field({
   label,
   children,

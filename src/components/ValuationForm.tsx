@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { AnimatePresence, motion } from 'motion/react';
 import { ArrowLeft, Check, Loader2 } from 'lucide-react';
 import { submitInquiry } from '../utils/forms';
-import { buttonClass, Choice, Field, inputClass } from './ui';
+import { buttonClass, calculatorInputClass, Choice, Field } from './ui';
 import { opts, Select } from './Select';
 
 const TYPES = ['House', 'Condo', 'Townhome', 'Multi-unit'] as const;
@@ -89,12 +89,12 @@ export function ValuationForm({ initialAddress = '' }: { initialAddress?: string
                   autoComplete="street-address"
                   value={address}
                   onChange={(e) => setAddress(e.target.value)}
-                  className={inputClass}
+                  className={calculatorInputClass}
                   placeholder="1234 N Example St, Chicago"
                 />
               </Field>
               <Field label="Unit (optional)">
-                <input value={unit} onChange={(e) => setUnit(e.target.value)} className={inputClass} placeholder="Unit 3B" />
+                <input value={unit} onChange={(e) => setUnit(e.target.value)} className={calculatorInputClass} placeholder="Unit 3B" />
               </Field>
               <Field label="Property type">
                 <Choice options={TYPES} value={type} onChange={setType} name="Property type" />
@@ -130,14 +130,14 @@ export function ValuationForm({ initialAddress = '' }: { initialAddress?: string
           {step === 2 && (
             <>
               <Field label="Full name">
-                <input required autoFocus autoComplete="name" value={contact.name} onChange={(e) => setContact({ ...contact, name: e.target.value })} className={inputClass} />
+                <input required autoFocus autoComplete="name" value={contact.name} onChange={(e) => setContact({ ...contact, name: e.target.value })} className={calculatorInputClass} />
               </Field>
               <div className="grid gap-5 sm:grid-cols-2">
                 <Field label="Email">
-                  <input required type="email" autoComplete="email" value={contact.email} onChange={(e) => setContact({ ...contact, email: e.target.value })} className={inputClass} />
+                  <input required type="email" autoComplete="email" value={contact.email} onChange={(e) => setContact({ ...contact, email: e.target.value })} className={calculatorInputClass} />
                 </Field>
                 <Field label="Phone">
-                  <input type="tel" autoComplete="tel" value={contact.phone} onChange={(e) => setContact({ ...contact, phone: e.target.value })} className={inputClass} />
+                  <input type="tel" autoComplete="tel" value={contact.phone} onChange={(e) => setContact({ ...contact, phone: e.target.value })} className={calculatorInputClass} />
                 </Field>
               </div>
             </>

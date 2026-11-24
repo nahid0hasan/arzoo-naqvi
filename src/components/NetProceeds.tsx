@@ -1,7 +1,7 @@
 import React, { useMemo, useState } from 'react';
 import { money } from '../utils/format';
 import { Slider } from './MortgageCalculator';
-import { inputClass } from './ui';
+import { calculatorInputClass } from './ui';
 
 export function NetProceedsCalculator() {
   const [price, setPrice] = useState(850000);
@@ -24,7 +24,7 @@ export function NetProceedsCalculator() {
   }, [price, payoff, commission, transfer, closing, credits]);
 
   return (
-    <div className="grid overflow-hidden rounded-3xl border border-stone bg-white lg:grid-cols-[1.2fr_1fr]">
+    <div className="grid overflow-hidden rounded-3xl border border-[var(--calc-border)] bg-[var(--calc-card)] lg:grid-cols-[1.2fr_1fr]">
       <div className="space-y-7 p-6 sm:p-10">
         <Slider label="Expected sale price" value={price} min={100000} max={5000000} step={5000} onChange={setPrice} display={money(price)} />
         <Slider label="Agent commission" value={commission} min={0} max={7} step={0.25} onChange={setCommission} display={`${commission}%`} />
@@ -45,7 +45,7 @@ export function NetProceedsCalculator() {
                   min={0}
                   value={f.value}
                   onChange={(e) => f.set(Math.max(0, Number(e.target.value)))}
-                  className={`${inputClass} num pl-8`}
+                  className={`${calculatorInputClass} num pl-8`}
                 />
               </div>
             </label>
@@ -53,24 +53,24 @@ export function NetProceedsCalculator() {
         </div>
       </div>
 
-      <div className="flex flex-col bg-sand p-6 sm:p-10">
-        <p className="text-lg md:text-2xl text-muted">Estimated net proceeds</p>
-        <p className={`num mt-2 text-[clamp(2.75rem,6vw,4rem)] font-semibold leading-none tracking-[-0.04em] ${r.net < 0 ? 'text-red-700' : 'text-ink'}`}>
+      <div className="flex flex-col bg-[var(--calc-summary)] p-6 text-white sm:p-10">
+        <p className="text-lg text-white/60 md:text-2xl">Estimated net proceeds</p>
+        <p className={`num mt-2 text-[clamp(2.75rem,6vw,4rem)] font-semibold leading-none tracking-[-0.04em] ${r.net < 0 ? 'text-[var(--calc-chart-primary)]' : 'text-white'}`}>
           {money(r.net)}
         </p>
-        <ul className="mt-8 divide-y divide-stone border-y border-stone">
+        <ul className="mt-8 divide-y divide-white/10 border-y border-white/10">
           <li className="flex justify-between py-3 text-[15px]">
             <span className="font-medium">Sale price</span>
             <span className="num font-medium">{money(price)}</span>
           </li>
           {r.items.map((i) => (
-            <li key={i.label} className="flex justify-between py-3 text-[15px] text-ink/75">
+            <li key={i.label} className="flex justify-between py-3 text-[15px] text-white/75">
               <span>{i.label}</span>
               <span className="num">−{money(i.value)}</span>
             </li>
           ))}
         </ul>
-        <p className="mt-auto pt-8 text-xs leading-relaxed text-muted">
+        <p className="mt-auto pt-8 text-xs leading-relaxed text-white/50">
           A starting estimate. Chicago, Cook County and Illinois transfer taxes, prorated property taxes and
           attorney fees vary by property. Arzoo will prepare an exact seller net sheet for your home.
         </p>
