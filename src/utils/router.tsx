@@ -69,9 +69,10 @@ export function useSeo(title: string, description: string) {
 function scrollToHash(hash: string) {
   if (!hash) return;
   let tries = 0;
+  const behavior: ScrollBehavior = window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth';
   const attempt = () => {
     const el = document.getElementById(hash);
-    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    if (el) el.scrollIntoView({ behavior, block: 'start' });
     else if (tries++ < 20) setTimeout(attempt, 50);
   };
   setTimeout(attempt, 80);
@@ -98,7 +99,10 @@ export function RouterProvider({ children }: { children: React.ReactNode }) {
   }));
 
   useEffect(() => {
-    const onPop = () => setLoc({ pathname: clean(window.location.pathname), search: window.location.search });
+    const onPop = () => {
+      setLoc({ pathname: clean(window.location.pathname), search: window.location.search });
+      scrollToHash(window.location.hash.slice(1));
+    };
     window.addEventListener('popstate', onPop);
     scrollToHash(window.location.hash.slice(1));
     return () => window.removeEventListener('popstate', onPop);

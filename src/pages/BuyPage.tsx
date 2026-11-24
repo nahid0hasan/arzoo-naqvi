@@ -2,6 +2,7 @@ import React, { useEffect, useMemo, useState } from 'react';
 import { MapPin, SlidersHorizontal, X } from 'lucide-react';
 import { IMAGES, LISTINGS, LISTING_NEIGHBORHOODS, PropertyType } from '../data/siteData';
 import { SITE } from '../config/site';
+import { TAX_SOURCES } from '../data/taxResources';
 import { useRouter } from '../utils/router';
 import { compactMoney } from '../utils/format';
 import { ButtonLink, Eyebrow, Img, Reveal, SectionHead } from '../components/ui';
@@ -173,6 +174,74 @@ const FAQ = [
   { q: 'What does it cost to work with you as a buyer?', a: 'We’ll go over compensation clearly in our first conversation and put it in a written buyer agreement, as required. In many cases the seller contributes toward it.' },
   { q: 'How long does it take to buy a home?', a: 'Most clients find a home within 30–90 days of starting to tour. Once under contract, closing usually takes 30–45 days.' },
   { q: 'What about homes not listed on Zillow?', a: 'Some of the best homes trade quietly through agent networks. I’ll flag coming-soon and off-market homes that match your search.' },
+  {
+    q: 'Who pays real estate transfer taxes when buying a home in Chicago?',
+    a: (
+      <>
+        The City of Chicago currently lists a $3.75-per-$500 City portion generally paid by the buyer and a
+        $1.50-per-$500 CTA portion generally paid by the seller. Illinois and Cook County transfer taxes are
+        separate, and exemptions and property location matter. Confirm the contract and closing statement with your
+        title company or attorney.{' '}
+        <a href={TAX_SOURCES.chicagoTransferTax.href} target="_blank" rel="noopener noreferrer" className="font-medium text-ink underline underline-offset-4">
+          See the City’s current guidance.
+        </a>
+      </>
+    ),
+  },
+  {
+    q: 'How can I estimate property taxes before buying a home?',
+    a: (
+      <>
+        Start with the property’s assessment, location and taxing districts, then check applicable exemptions and the
+        latest bill. Assessment and tax-bill records answer different questions, so review both before relying on an
+        estimate. Use the{' '}
+        <a href={TAX_SOURCES.cookCountyAssessor.href} target="_blank" rel="noopener noreferrer" className="font-medium text-ink underline underline-offset-4">
+          Cook County Assessor
+        </a>{' '}
+        and{' '}
+        <a href={TAX_SOURCES.cookCountyTreasurer.href} target="_blank" rel="noopener noreferrer" className="font-medium text-ink underline underline-offset-4">
+          Cook County Treasurer
+        </a>{' '}
+        resources for current parcel information.
+      </>
+    ),
+  },
+  {
+    q: 'Can I deduct mortgage interest and property taxes?',
+    a: (
+      <>
+        Some homeowners may qualify to deduct eligible mortgage interest or real-estate taxes on a federal return.
+        Eligibility depends on current tax rules, qualifying debt, whether you itemize, and applicable limits; a
+        deduction is not automatic. Review{' '}
+        <a href={TAX_SOURCES.irsMortgageInterest.href} target="_blank" rel="noopener noreferrer" className="font-medium text-ink underline underline-offset-4">
+          IRS Publication 936
+        </a>{' '}
+        and{' '}
+        <a href={TAX_SOURCES.irsHomeownerTaxInfo.href} target="_blank" rel="noopener noreferrer" className="font-medium text-ink underline underline-offset-4">
+          Publication 530
+        </a>{' '}
+        or ask a tax professional.
+      </>
+    ),
+  },
+  {
+    q: 'Are there property-tax exemptions for homeowners in Cook County?',
+    a: (
+      <>
+        Cook County offers property-tax exemptions for homeowners who meet specific eligibility requirements.
+        Exemptions, application steps and renewal rules vary by program and can change. Check the{' '}
+        <a href={TAX_SOURCES.cookCountyAssessor.href} target="_blank" rel="noopener noreferrer" className="font-medium text-ink underline underline-offset-4">
+          Cook County Assessor
+        </a>{' '}
+        for current programs and parcel-specific guidance; do not assume an exemption transfers automatically when
+        a property is sold.
+      </>
+    ),
+  },
+  {
+    q: 'Are property taxes included in my monthly mortgage payment?',
+    a: 'They may be included in an escrow account collected by your lender, depending on your loan and servicing arrangement. If the lender does not escrow taxes, you are generally responsible for paying the tax bills directly by their due dates. Check your loan estimate, mortgage statement and closing documents to see how your payments are handled.',
+  },
 ];
 
 export function BuyPage() {
@@ -193,9 +262,10 @@ export function BuyPage() {
       <section id="mortgage" className="scroll-mt-20 bg-sand py-20 sm:py-28">
         <div className="wrap">
           <SectionHead
-            eyebrow="Mortgage calculator"
-            title="Know your monthly payment."
-            text="Adjust the price, down payment and rate to see principal, interest, taxes, insurance and HOA in one number."
+            eyebrow="Buyer resources"
+            title="Mortgage Calculator"
+            titleClassName="font-semibold text-[clamp(1.875rem,4.5vw,2.125rem)] md:text-[clamp(2.25rem,4.4vw,3.5rem)]"
+            text="Estimate your monthly mortgage payment and explore financing options with confidence."
           />
           <Reveal className="mt-12">
             <MortgageCalculator />

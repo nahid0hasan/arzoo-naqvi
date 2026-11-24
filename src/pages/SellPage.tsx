@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { Check } from 'lucide-react';
 import { IMAGES } from '../data/siteData';
+import { TAX_SOURCES } from '../data/taxResources';
 import { useRouter } from '../utils/router';
 import { ButtonLink, Eyebrow, Img, Reveal, SectionHead } from '../components/ui';
 import { ValuationForm } from '../components/ValuationForm';
 import { NetProceedsCalculator } from '../components/NetProceeds';
-import { ClosingCta, PageHero, Process } from '../components/Sections';
+import { ClosingCta, Faq, PageHero, Process } from '../components/Sections';
+import { SellerTaxInformation } from '../components/SellerTaxInformation';
 
 const CHECKLIST: { group: string; items: string[] }[] = [
   {
@@ -34,6 +36,123 @@ const CHECKLIST: { group: string; items: string[] }[] = [
       'Hire your real estate attorney',
       'Schedule movers once attorney review is complete',
     ],
+  },
+];
+
+const SELLER_TAX_FAQ = [
+  {
+    q: 'Do I have to pay taxes when selling my home in Chicago?',
+    a: (
+      <>
+        Possibly, but not simply because you sold a home. Federal tax may apply to taxable gain after basis and
+        selling expenses, with a possible primary-residence exclusion. Illinois income-tax treatment and
+        location-specific transfer taxes are separate, and closing may include property-tax prorations. Your
+        ownership, use, filing status, contract and property location all matter.{' '}
+        <a href={TAX_SOURCES.irsSellingYourHome.href} target="_blank" rel="noopener noreferrer" className="font-medium text-ink underline underline-offset-4">
+          IRS Publication 523
+        </a>{' '}
+        explains the federal rules.
+      </>
+    ),
+  },
+  {
+    q: 'Can I qualify for the $250,000 or $500,000 home sale tax exclusion?',
+    a: (
+      <>
+        Some sellers may exclude up to $250,000 of gain, or up to $500,000 for qualifying married couples filing
+        jointly. Generally, ownership and use tests require two years during the five-year period before the sale;
+        using the exclusion on another home within the prior two years may limit eligibility. Joint filers have
+        additional rules, and exceptions or partial exclusions may apply. Eligibility is not automatic. See{' '}
+        <a href={TAX_SOURCES.irsSaleOfHome.href} target="_blank" rel="noopener noreferrer" className="font-medium text-ink underline underline-offset-4">
+          IRS Tax Topic 701
+        </a>
+        .
+      </>
+    ),
+  },
+  {
+    q: 'What real estate transfer taxes apply when selling a home in Chicago?',
+    a: (
+      <>
+        Illinois, Cook County and Chicago have separate transfer-tax rules. The City currently lists a $3.75-per-$500
+        City portion generally paid by the buyer and a $1.50-per-$500 CTA portion generally paid by the seller.
+        Exemptions may apply, and Chicago’s municipal tax does not apply to every Cook County suburb. Confirm the
+        parcel, current charges and closing allocation with your title company or attorney.{' '}
+        <a href={TAX_SOURCES.chicagoTransferTax.href} target="_blank" rel="noopener noreferrer" className="font-medium text-ink underline underline-offset-4">
+          Check the City’s current guidance.
+        </a>
+      </>
+    ),
+  },
+  {
+    q: 'How are property taxes handled when selling a home?',
+    a: (
+      <>
+        Property-tax bills may be issued after the period they cover, so a sale can close before the seller’s share
+        has been paid. The purchase contract and closing statement determine how taxes are prorated or credited and
+        how outstanding bills are addressed. The amount is not based on one universal percentage. Review the
+        closing figures with your attorney or title company and check current bills with the{' '}
+        <a href={TAX_SOURCES.cookCountyTreasurer.href} target="_blank" rel="noopener noreferrer" className="font-medium text-ink underline underline-offset-4">
+          Cook County Treasurer
+        </a>
+        .
+      </>
+    ),
+  },
+  {
+    q: 'Can home improvements and selling expenses reduce my taxable gain?',
+    a: (
+      <>
+        Qualifying capital improvements may increase a home’s adjusted basis, while allowable selling expenses may
+        reduce the amount realized. Routine repairs and maintenance generally are not treated like capital
+        improvements, and not every expense qualifies. Keep purchase, improvement and closing records, then ask a
+        tax professional which costs count.{' '}
+        <a href={TAX_SOURCES.irsSellingYourHome.href} target="_blank" rel="noopener noreferrer" className="font-medium text-ink underline underline-offset-4">
+          IRS Publication 523
+        </a>{' '}
+        describes common basis adjustments.
+      </>
+    ),
+  },
+  {
+    q: 'Are rental and investment properties taxed differently when sold?',
+    a: (
+      <>
+        They can be. A sale may involve capital gain and tax treatment for depreciation, while the primary-residence
+        exclusion depends on ownership and use. A Section 1031 exchange may defer gain for qualifying investment or
+        business real estate under strict rules; it does not automatically eliminate tax and generally is not for
+        an ordinary personal residence. Discuss your history with a qualified tax professional.
+      </>
+    ),
+  },
+  {
+    q: 'Does selling my home affect my Illinois income taxes?',
+    a: (
+      <>
+        It may if the sale produces gain that is taxable under the applicable federal and Illinois rules. Illinois
+        generally starts with federal adjusted gross income and applies state additions or subtractions, so the
+        result depends on your return, residency, exclusion eligibility and other facts—not simply the home’s gross
+        sale price. See the{' '}
+        <a href={TAX_SOURCES.illinoisIncomeTax.href} target="_blank" rel="noopener noreferrer" className="font-medium text-ink underline underline-offset-4">
+          Illinois Department of Revenue
+        </a>{' '}
+        or consult a tax professional.
+      </>
+    ),
+  },
+  {
+    q: 'Do I need to report my home sale on my tax return?',
+    a: (
+      <>
+        Reporting depends on whether gain is taxable, whether an exclusion applies and your filing circumstances.
+        The IRS says a sale generally must be reported if you receive Form 1099-S, even when the gain may be
+        excludable; other reporting rules can also apply. Check current{' '}
+        <a href={TAX_SOURCES.irsSaleOfHome.href} target="_blank" rel="noopener noreferrer" className="font-medium text-ink underline underline-offset-4">
+          IRS home-sale guidance
+        </a>{' '}
+        and get professional help for your federal and Illinois filing obligations.
+      </>
+    ),
   },
 ];
 
@@ -130,6 +249,7 @@ export function SellPage() {
         title="Sell your home for what it’s worth."
         text="Accurate pricing, beautiful marketing and steady negotiation, with a clear plan from day one."
         image={IMAGES.brownstoneStreet}
+        titleClassName="text-[clamp(3.3rem,8vw,7.25rem)]"
       >
         <ButtonLink to="#valuation" variant="light">What’s my home worth?</ButtonLink>
         <ButtonLink to="#net-proceeds" variant="outline-light">Net proceeds calculator</ButtonLink>
@@ -179,6 +299,8 @@ export function SellPage() {
         </div>
       </section>
 
+      <SellerTaxInformation />
+
       <section className="py-20 sm:py-28">
         <div className="wrap">
           <SectionHead eyebrow="What you get" title="Everything it takes to sell well." />
@@ -205,6 +327,22 @@ export function SellPage() {
             className="mb-12"
           />
           <Checklist />
+        </div>
+      </section>
+
+      <section id="faq" className="scroll-mt-20 py-20 sm:py-28">
+        <div className="wrap grid gap-10 lg:grid-cols-[1fr_1.6fr] lg:gap-20">
+          <Reveal>
+            <Eyebrow>Seller questions</Eyebrow>
+            <h2 className="h-section">Questions about selling and taxes.</h2>
+            <p className="mt-5 max-w-md leading-relaxed text-muted">
+              General answers to common tax and closing questions. Your exact obligations depend on your home and
+              circumstances.
+            </p>
+          </Reveal>
+          <Reveal delay={0.1}>
+            <Faq items={SELLER_TAX_FAQ} />
+          </Reveal>
         </div>
       </section>
 

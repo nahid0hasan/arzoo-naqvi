@@ -54,7 +54,7 @@ export function NetProceedsCalculator() {
       </div>
 
       <div className="flex flex-col bg-sand p-6 sm:p-10">
-        <p className="text-sm text-muted">Estimated net proceeds</p>
+        <p className="text-lg md:text-2xl text-muted">Estimated net proceeds</p>
         <p className={`num mt-2 text-[clamp(2.75rem,6vw,4rem)] font-semibold leading-none tracking-[-0.04em] ${r.net < 0 ? 'text-red-700' : 'text-ink'}`}>
           {money(r.net)}
         </p>

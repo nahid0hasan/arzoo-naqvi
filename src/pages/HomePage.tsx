@@ -26,7 +26,7 @@ const SLIDES = [
   { src: IMAGES.arzooChicagoResidence, caption: 'Lincoln Park' },
   { src: IMAGES.arzooGardenLifestyle, caption: 'Garden Lifestyle' },
   { src: IMAGES.arzooLuxuryInterior, caption: 'Luxury Interior' },
-  { src: IMAGES.arzooModernExterior, caption: 'Chicago River' },
+  // { src: IMAGES.arzooModernExterior, caption: 'Chicago River' },
 ];
 
 const SLIDE_MS = 6500;
