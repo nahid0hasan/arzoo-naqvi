@@ -41,6 +41,12 @@ export const IMAGES = {
   brickHouse2: img("brick-house-2"),
   porch: img("porch"),
 
+  arzooChicagoPenthouse: img("arzoo-naqvi-hero-chicago-penthouse"),
+  arzooChicagoResidence: img("arzoo-naqvi-hero-chicago-residence"),
+  arzooGardenLifestyle: img("arzoo-naqvi-hero-garden-lifestyle"),
+  arzooLuxuryInterior: img("arzoo-naqvi-hero-luxury-interior"),
+  arzooModernExterior: img("arzoo-naqvi-hero-modern-exterior"),
+
   // People
   coupleKitchen: img("couple-kitchen"),
   portrait: img("portrait"), // TODO: replace with Arzoo's real headshot
