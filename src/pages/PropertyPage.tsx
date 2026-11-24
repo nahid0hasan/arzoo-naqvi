@@ -35,7 +35,8 @@ function TourCard({ address }: { address: string }) {
   return (
     <div className="rounded-3xl border border-stone bg-white p-5 shadow-[0_30px_60px_-35px_rgb(0_0_0/0.3)] sm:p-6">
       <div className="flex items-center gap-4">
-        <img src={IMAGES.portrait} alt="" className="h-14 w-14 rounded-full object-cover object-top" />
+        {/* <img src={IMAGES.portrait} alt="" className="h-14 w-14 rounded-full object-cover object-top" /> */}
+        <img src={IMAGES.ArzooNaqviHome} alt="" className="h-14 w-14 rounded-full object-cover object-center" />
         <div>
           <p className="font-medium">Arzoo Naqvi</p>
           <a href={SITE.phoneHref} className="text-sm text-muted hover:text-ink">

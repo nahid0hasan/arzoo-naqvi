@@ -183,7 +183,8 @@ function Intro() {
         <Reveal className="lg:col-span-5">
           <div className="relative">
             <div className="aspect-[4/5] overflow-hidden rounded-3xl">
-              <Img src={IMAGES.portrait} alt="Arzoo Naqvi" className="h-full w-full object-cover object-top" />
+              {/* <Img src={IMAGES.portrait} alt="Arzoo Naqvi" className="h-full w-full object-cover object-top" /> */}
+              <Img src={IMAGES.ArzooNaqviHome} alt="Arzoo Naqvi" className="h-full w-full object-cover object-center" />
             </div>
             <div className="absolute -bottom-6 -right-3 hidden w-48 overflow-hidden rounded-2xl border-[6px] border-paper sm:block lg:-right-10">
               <Img src={IMAGES.lincolnParkWalk} alt="" className="aspect-square h-full w-full object-cover" />

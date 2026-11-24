@@ -211,7 +211,8 @@ export function SellPage() {
       <section id="process" className="scroll-mt-20 py-20 sm:py-28">
         <div className="wrap">
           <SectionHead eyebrow="How selling works" title="From first visit to closing." className="mb-14" />
-          <Process steps={STEPS} image={IMAGES.goldCoastSalon} imageAlt="Elegant Gold Coast living room" />
+          {/* <Process steps={STEPS} image={IMAGES.goldCoastSalon} imageAlt="Elegant Gold Coast living room" /> */}
+          <Process steps={STEPS} image={IMAGES.ArzooNaqviSell} imageAlt="Elegant Gold Coast living room" />
         </div>
       </section>
 

@@ -54,7 +54,8 @@ export function AboutPage() {
             className="lg:col-span-5"
           >
             <div className="aspect-[4/5] overflow-hidden rounded-3xl">
-              <img src={IMAGES.portrait} alt="Arzoo Naqvi" className="h-full w-full object-cover object-top" />
+              {/* <img src={IMAGES.portrait} alt="Arzoo Naqvi" className="h-full w-full object-cover object-top" /> */}
+              <img src={IMAGES.ArzooNaqviAboutMe} alt="Arzoo Naqvi" className="h-full w-full object-cover object-top" />
             </div>
           </motion.div>
         </div>
