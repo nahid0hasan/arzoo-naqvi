@@ -7,7 +7,7 @@ import {
   MortgageTerm,
   validateMortgageInputs,
 } from '../utils/mortgage';
-import { inputClass } from './ui';
+import { calculatorInputClass } from './ui';
 import './MortgageCalculator.css';
 
 const currency = new Intl.NumberFormat('en-US', {
@@ -92,7 +92,7 @@ function NumericInput({
             onChange={(event) => onChange(event.target.value)}
             aria-invalid={Boolean(error)}
             aria-describedby={error ? `${id}-error` : undefined}
-            className={`${inputClass} mortgage-number-input num text-right ${prefix ? 'pl-9' : ''} ${suffix ? 'pr-9' : ''} ${error ? 'border-red-700' : ''}`}
+            className={`${calculatorInputClass} mortgage-number-input num text-right ${prefix ? 'pl-9' : ''} ${suffix ? 'pr-9' : ''} ${error ? 'border-[var(--calc-error)]' : ''}`}
           />
           {suffix && (
             <span className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 text-muted">
@@ -103,7 +103,7 @@ function NumericInput({
       </div>
       {hint && <p className="mt-1 text-xs leading-relaxed text-muted">{hint}</p>}
       {error && (
-        <p id={`${id}-error`} className="mt-1.5 text-xs leading-relaxed text-red-800" role="alert">
+        <p id={`${id}-error`} className="mt-1.5 text-xs leading-relaxed text-[var(--calc-error)]" role="alert">
           {error}
         </p>
       )}
@@ -152,11 +152,11 @@ interface PaymentPart {
 }
 
 const PAYMENT_COLORS: Record<PaymentPart['label'], string> = {
-  'Principal & interest': '#c9a877',
-  'Property tax': '#93714a',
-  'Home insurance': '#e3ddd3',
-  'HOA dues': '#6e685f',
-  PMI: '#fbfaf7',
+  'Principal & interest': 'var(--calc-chart-primary)',
+  'Property tax': 'var(--calc-chart-secondary)',
+  'Home insurance': 'var(--calc-chart-tertiary)',
+  'HOA dues': 'var(--calc-muted)',
+  PMI: 'var(--calc-card)',
 };
 
 function PaymentDonut({ parts, total }: { parts: PaymentPart[]; total: number }) {
@@ -171,7 +171,7 @@ function PaymentDonut({ parts, total }: { parts: PaymentPart[]; total: number })
       role="img"
       aria-label="Monthly payment breakdown chart"
     >
-      <circle cx="64" cy="64" r={radius} fill="none" stroke="#2a2927" strokeWidth="12" />
+      <circle cx="64" cy="64" r={radius} fill="none" stroke="var(--calc-summary-soft)" strokeWidth="12" />
       {total > 0 && (
         <g transform="rotate(-90 64 64)">
           {parts.map((part) => {
@@ -194,10 +194,10 @@ function PaymentDonut({ parts, total }: { parts: PaymentPart[]; total: number })
           })}
         </g>
       )}
-      <text x="64" y="61" textAnchor="middle" fill="#fbfaf7" className="fill-paper text-[10px]">
+      <text x="64" y="61" textAnchor="middle" fill="var(--calc-card)" className="text-[10px]">
         MONTHLY
       </text>
-      <text x="64" y="76" textAnchor="middle" fill="#fbfaf7" className="fill-paper text-[12px] font-medium">
+      <text x="64" y="76" textAnchor="middle" fill="var(--calc-card)" className="text-[12px] font-medium">
         {total > 0 ? 'ESTIMATE' : '$0.00'}
       </text>
     </svg>
@@ -413,7 +413,7 @@ export function MortgageCalculator({
     : [];
 
   return (
-    <div className="mortgage-calculator grid overflow-hidden rounded-3xl border border-stone bg-white lg:grid-cols-[1.2fr_1fr]">
+    <div className="mortgage-calculator grid overflow-hidden rounded-3xl border border-[var(--calc-border)] bg-[var(--calc-card)] lg:grid-cols-[1.2fr_1fr]">
       <div className="space-y-7 p-6 sm:p-8 lg:p-10">
         <div>
           <NumericInput
@@ -502,7 +502,7 @@ export function MortgageCalculator({
 
         <div>
           <span className="mb-3 block text-sm font-medium text-ink">Loan term</span>
-          <div className="grid grid-cols-3 gap-1 rounded-full bg-sand p-1">
+          <div className="grid grid-cols-3 gap-1 rounded-full bg-[var(--calc-section)] p-1">
             {MORTGAGE_TERMS.map((years) => (
               <button
                 key={years}
@@ -510,7 +510,7 @@ export function MortgageCalculator({
                 onClick={() => setTerm(years)}
                 aria-pressed={term === years}
                 className={`h-11 rounded-full text-sm font-medium transition-colors duration-150 focus-visible:outline focus-visible:outline-2 focus-visible:outline-bronze ${
-                  term === years ? 'bg-ink text-paper shadow-sm' : 'text-muted hover:bg-white/70 hover:text-ink'
+                  term === years ? 'bg-[var(--calc-selected)] text-[var(--calc-selected-text)] shadow-sm' : 'text-[var(--calc-muted)] hover:bg-white/70 hover:text-[var(--calc-heading)]'
                 }`}
               >
                 {years} years
@@ -560,7 +560,7 @@ export function MortgageCalculator({
         </div>
       </div>
 
-      <div className="flex flex-col bg-ink p-6 text-white sm:p-8 lg:p-10">
+      <div className="flex flex-col bg-[var(--calc-summary)] p-6 text-white sm:p-8 lg:p-10">
         <p className="text-base text-white/60">Estimated monthly payment</p>
         {result ? (
           <>

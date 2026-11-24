@@ -279,7 +279,7 @@ export function SellPage() {
             </div>
           </Reveal>
           <Reveal delay={0.1} className="lg:pt-4">
-            <div className="rounded-3xl border border-stone bg-white p-6 shadow-[0_30px_60px_-30px_rgb(0_0_0/0.2)] sm:p-10">
+            <div className="rounded-3xl border border-[var(--calc-border)] bg-[var(--calc-card)] p-6 shadow-[0_30px_60px_-30px_rgb(0_0_0/0.2)] sm:p-10">
               <ValuationForm key={address} initialAddress={address} />
             </div>
           </Reveal>

@@ -459,7 +459,7 @@ function AffordabilityTeaser() {
           </div>
         </Reveal>
         <Reveal delay={0.1}>
-          <div className="rounded-3xl border border-stone bg-white p-6 sm:p-10">
+          <div className="rounded-3xl border border-[var(--calc-border)] bg-[var(--calc-card)] p-6 sm:p-10">
             <div className="space-y-8">
               {[
                 { label: 'Home price', value: price, min: 200000, max: 3000000, step: 10000, set: setPrice, show: money(price) },
@@ -484,7 +484,7 @@ function AffordabilityTeaser() {
                 </div>
               ))}
             </div>
-            <div className="mt-10 flex items-end justify-between gap-4 rounded-2xl bg-ink p-6 text-white">
+            <div className="mt-10 flex items-end justify-between gap-4 rounded-2xl bg-[var(--calc-summary)] p-6 text-white">
               <div>
                 <p className="text-sm text-white/60">Estimated monthly</p>
                 <p className="num mt-1 text-[clamp(2.25rem,5vw,3rem)] font-semibold leading-none tracking-[-0.04em]">{money(monthly)}</p>
